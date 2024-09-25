@@ -1,0 +1,367 @@
+/* This is the 2023 ewyner copy. Do not edit copies of it. */
+
+
+/* Overall */
+
+@charset "UTF-8";
+
+:root {
+	--bold: 600;
+}
+
+
+/* Layout */
+
+@font-face {
+	font-family: 'RobotoCondensed-Light-webfont';
+	src: url('../assets/RobotoCondensed-Light-webfont.woff') format('woff');
+}
+
+body {
+	font-family: RobotoCondensed-Light-webfont;
+	color: var(--domain-text);
+	background-color: var(--domain-background);
+	position: absolute; /* reference from top of window */
+	margin-top: 48px; /* spacing for navbar */
+	width: 100%; /* extend elements to end of window */
+	height: 100%; /* needed for Chrome to display pdfs */
+}
+
+.flexbox {
+	display: flex; /* Use flexbox to put items in grid */
+	flex-wrap: wrap; /* Items continue on next row rather than off screen */
+	align-items: flex-start;
+	max-width: 100%;
+}
+
+.flexitem {
+	flex-basis: 25%; /* Each item gets 25% of its row. */
+	padding-right: 18px; /* There is space between items in rows. */
+	padding-bottom: 18px; /* There is space between rows. */
+	box-sizing: border-box; /* The 25% represents the entire element, not only the content. */
+}
+
+.block {
+	display: inline-block; /* for horizontal div arrangement */
+	margin-right: 18px;
+}
+
+input {
+	font-family: RobotoCondensed-Light-webfont;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-border-radius: 0px;
+	border-top-style: hidden;
+	border-left-style: hidden;
+	border-right-style: hidden;
+	border-bottom-style: groove;
+	border-bottom-color: var(--domain-signature);
+	background-color: var(--domain-background);
+	color: var(--domain-text);
+	font-size:  14px; /* Change this by domain */	
+}
+
+input[type='checkbox'] {
+	-webkit-appearance: checkbox;
+	-moz-appearance: checkbox;
+	appearance: checkbox;
+}
+
+input[type='radio'] {
+	-webkit-appearance: radio;
+	-moz-appearance: radio;
+	appearance: radio;
+}
+
+textarea {
+	font-family: RobotoCondensed-Light-webfont;
+}
+
+.linear {
+	width: 180px;
+}
+
+
+/* Buttons */
+
+input[type='submit'], input[type='button'], a.button, button {
+	font-family: 'Roboto Condensed', sans-serif;
+	background-color: var(--domain-signature);
+	border-width: 0; /* prevent 3D look */
+	color: white !important; /* for submits */
+	font-size: 14px;
+	vertical-align: middle;
+	width: 120px;
+	height: 28px;
+	margin: 6px 12px 6px 0;
+	cursor: pointer;
+}
+
+input[type='submit']:hover, input[type='button']:hover, a.button:hover, button:hover {
+	background-color: var(--domain-accent);
+}
+
+.buttonlink {
+	color: white;
+	text-decoration: none;
+}
+
+.docbutton {
+	margin: 6px 12px 6px 0;
+}
+
+.highlight {
+	background-color: var(--domain-signature) !important;
+}
+
+.selected {
+	background-color: var(--domain-accent) !important;
+}
+
+.topic {
+	color:  var(--domain-signature);
+}
+
+.selecting {
+	cursor: pointer;
+	color: var(--domain-accent) !important;
+}
+
+.disabled:hover {
+	background-color: var(--domain-signature) !important;
+}
+
+.onecharbutton {
+	width: 28px;
+}
+
+.appButton {
+	width: 144px;
+	height: 48px;
+	background: var(--domain-signature);
+	border: solid #000;
+	text-align: center;
+	text-decoration: none !important;
+	padding-top: 12px;
+	margin-right: -2px;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	margin-bottom: 18px;
+	box-sizing: border-box;
+}
+
+a:hover {
+	background-color: var(--domain-ahover);
+}
+
+.appButton a:link, .appButton a:visited {
+	color: var(--domain-background);
+	text-decoration: none;
+}
+
+.appButton a:hover {
+	color: var(--domain-text);
+}
+
+.directory {
+	font-size: 1.25em;
+	font-weight: var(--bold);
+}
+
+.descriptor {
+	font-style: italic;
+	color: #666;
+}
+
+
+/* Navbar */
+
+.navbar {
+	width: 100%; /* bar covers whole window width */
+	position: fixed; /* starts at start of window */
+	top: 0; /* no gap at top */
+	left: 0; /* no gap on left */
+	z-index: 2; /* dropdown menus are opaque */
+	border-top: 2px groove black; /* Outline the navbar (no effect except slightly thicker if navbar is black) */
+	border-bottom: 2px groove black;
+}
+
+#navfav {
+	padding: 5px 0;
+}
+
+#currentdirectory {
+	font-weight: var(--bold);
+	margin-left: -24px;
+	color: var(--domain-signature);
+}
+
+.navbar a {
+	text-decoration: none;
+	color: var(--domain-navtext);
+	display: block;
+}
+
+a {
+	color: var(--domain-signature);
+	cursor: pointer;
+}
+
+.navbar a:hover, .navbar a:active, .active, .active a {
+	color: var(--domain-navselect); /* var(--domain-color); */
+	cursor: pointer;
+}
+
+.navbar ul {
+	font-family: 'Roboto Condensed'; /* make bold by using regular font instead of light font */
+	background-color: var(--domain-navbar);
+	padding: 0; /* start at left */
+	margin: 0; /* start at top */
+	display: flex; /* keep navbar height correct */
+	white-space: nowrap; /* prevents items from being multiline */
+	list-style: none; /* Eliminate bullets. */
+}
+
+.navbar li { /* list items in the navbar */
+	padding: 0 24px; /* spaces the items */
+	height: 36px; /* height of navbar */
+	line-height: 36px; /* achieves propor leading */
+	color: var(--domain-navtext);
+	/* display: inline-block; Makes dropdowns horizontal :( */
+	text-align: left;
+	border-bottom: none;
+}
+
+.navbar li ul {
+	display: none; /* Menu items don't display unless their menu is hovered over. */
+	position: absolute; /* Prevents expansion of menu li that would push next lis right */
+	background-color: #222;
+}
+
+.navbar li li {
+	letter-spacing: 0px; /* Keep menu item kearning tight */
+}
+
+.navbar li:hover ul, .navbar li:active ul, .navbar li ul li {
+	display: block; /* Show nav menus. */
+}
+
+.navanchor { /* this should be updated */
+	color: var(--navanchor-color);
+	font-weight: var(--bold);
+}
+
+div.navbar {
+	/* overflow: auto; This kills it. */
+	/* white-space: nowrap; unneeded ? */
+	-webkit-overflow-scrolling: touch;
+}
+
+
+/* Paragraphs and Spans */
+
+h1 {
+	font-size: 1.75em;
+	font-weight: var(--bold);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 1em;
+	margin-bottom: 0em;
+}
+
+.primary {
+	font-family: 'Roboto Condensed';
+	color: var(--domain-signature); /* Use the color specified in the domain file */
+}
+
+.secondary {
+	color: var(--domain-accent);
+}
+
+.warning {
+	color: red;
+	font-family: 'Roboto Condensed';
+}
+
+.circled {
+	border-radius: 1.5em;
+	font-weight: var(--bold);
+}
+
+.helptext {
+	font-style: italic;
+	font-size: 0.9em;
+	color: #666;
+}
+
+
+/* Modals */
+
+.modal {
+	position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+	display: none;
+	z-index: 1;
+	padding-top: 200px;
+	width: 100%;
+	overflow: auto;
+}
+
+.modal-content {
+	background-color: #EEE;
+	margin: auto;
+	padding: 20px;
+	border: 3px groove var(--domain-signature);
+	width: 50%;
+}
+
+.modaltop {
+	margin-top: 0;
+	padding-top: 0;
+	color: var(--domain-text);
+	font-size: 2em;
+}
+
+
+/* Tables */
+
+th {
+	color: var(--domain-signature);
+	text-align: left; /* except numerical right-aligns are done inline */
+	font-family: 'Roboto Condensed'; /* make bold by using regular font instead of light font */
+	padding-right: 24px; /* space between columns */
+}
+
+td {
+	text-align: left;
+	font-size: 0.8em;
+	padding-right: 24px;
+}
+
+
+/* Cards */
+
+.card {
+  margin: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.8);
+  width: 480px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+}
+
+.cardContainer {
+  padding: 2px 16px;
+}
+
+
+/* Assets */
+
+#logo {
+	display: block;
+	padding: 3px 12px 0;
+}

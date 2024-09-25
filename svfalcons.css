@@ -1,0 +1,15 @@
+/* SVHSFALCONS 2020 */
+
+:root {
+	--domain-signature: #800;
+	--domain-accent: #C93;
+	--domain-text: #333;
+	--domain-background: white;
+	--domain-navbar: #D8D8D8;
+	--domain-navtext: #800;
+	--domain-navselect: #C83;
+}
+
+tr {
+	height: 36px;
+}
